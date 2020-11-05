@@ -15,9 +15,9 @@ const FILES_TO_CACHE = [
 
 // install
 self.addEventListener("install", function (evt) {
-    // pre cache all static assets
+    // pre cache transaction data
     evt.waitUntil(
-      caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+      caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/transaction"))
     );
   
     // tell the browser to activate this service worker immediately once it
